@@ -25,7 +25,10 @@ document.getElementById('generate').addEventListener('click', () => {
     } else {
         let result = parseInt(quest) || 0;
         if(result > minmaxSize[1] || result < minmaxSize[0]) return;
-        else generateGrid(result);
+        else {
+            clearGrid();
+            generateGrid(result);
+        }
     }
 })
 document.getElementById('export').addEventListener('click', () => {
@@ -125,6 +128,5 @@ function exportGrid() {
 function clearGrid() {
     let box = document.getElementById('box')
     box.parentNode.removeChild(box)
-    generateGrid(gridSize)
 }
 generateGrid(gridSize)
