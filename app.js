@@ -36,6 +36,7 @@ document.getElementById('export').addEventListener('click', () => {
 })
 document.getElementById('clear').addEventListener('click', () => {
     clearGrid()
+    generateGrid(0);
 })
 function togglePixel(line, pixel, element, isImported) {
     let pixelElement = grid[line][pixel]
