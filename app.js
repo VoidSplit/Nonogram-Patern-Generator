@@ -127,6 +127,6 @@ function exportGrid() {
 }
 function clearGrid() {
     let box = document.getElementById('box')
-    box.parentNode.removeChild(box)
+    if(box) box.parentNode.removeChild(box)
 }
 generateGrid(gridSize)
