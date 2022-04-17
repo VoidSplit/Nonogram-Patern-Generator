@@ -12,4 +12,6 @@ Copy this code and create an issue on this repository, we will check and validat
 The patterns must respect certain rules, first the size must be 5 pixels minimum and 12 maximum, any invalid size will not be validated.
 second, they must not contain any shocking, defamatory or hateful message.
 
+Please make patterns representing something, not random patterns! :)
+
 # Now Enjoy and create!
