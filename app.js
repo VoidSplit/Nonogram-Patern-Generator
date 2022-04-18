@@ -32,6 +32,7 @@ document.getElementById('generate').addEventListener('click', () => {
         else {
             document.getElementById('export').classList.remove('invisible')
             clearGrid();
+            gridSize = result;
             generateGrid(result);
         }
     }
@@ -41,6 +42,7 @@ document.getElementById('export').addEventListener('click', () => {
 })
 document.getElementById('clear').addEventListener('click', () => {
     clearGrid()
+    gridSize = 0;
     document.getElementById('export').classList.add('invisible')
     generateGrid(0);
 })
