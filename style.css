@@ -14,6 +14,8 @@ body {
     --dots: rgb(135, 135, 135);
     --white: #fff;
     --black: #000;
+    --white-hover: rgb(255, 255, 255);
+    --black-hover: rgb(24, 24, 24);
     --shadow: rgba(0, 0, 0, 0.3);
     --font: #000;
     --output: #fff;
@@ -25,11 +27,14 @@ body {
     --dots: rgb(135, 135, 135);
     --white: rgb(223, 223, 223);
     --black: #000;
+    --white-hover: rgb(255, 255, 255);
+    --black-hover: rgb(24, 24, 24);
     --shadow: rgba(0, 0, 0, 0.8);
     --font: #fff;
     --output: #181818;
     --color: #fff;
     --copy-btn: rgb(18, 18, 18);
+    --pop-up: rgb(18, 18, 18);
 }
 #wrapper {
     display: flex;
@@ -49,6 +54,13 @@ body {
     background: var(--white);
     aspect-ratio: 1;
     height: var(--pixel-size);
+    cursor: pointer;
+}
+.pixel:hover {
+    background: var(--white-hover);
+}
+.pixel.black:hover {
+    background: var(--black-hover);
 }
 .pixel.black {
     background: var(--black);
@@ -84,6 +96,9 @@ body {
     align-items: center;
     justify-content: center;
 }
+.invisible {
+    display: none !important;
+}
 .output #output-content {
     display: flex;
     align-items: center;
@@ -100,10 +115,10 @@ body {
 #output-content::-webkit-scrollbar {
     width: 5px;
     height: 8px;
-    background-color: var(--dots); 
+    background: var(--copy-btn);
 }
 #output-content::-webkit-scrollbar-thumb {
-    background: var(--copy-btn);
+    background-color: var(--dots); 
 }
 .output .icon {
     aspect-ratio: 1;
@@ -115,6 +130,14 @@ body {
     border-radius: 8px;
     background-color: var(--copy-btn);
     cursor: pointer;
+}
+#pop-up {
+    top: -100%;
+    position: absolute;
+    background-color: var(--pop-up);
+    padding: 15px 35px;
+    border-radius: 25px;
+    cursor: default;
 }
 .btn-wrapper {
     position: absolute;

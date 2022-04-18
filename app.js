@@ -9,12 +9,16 @@ copyButton.addEventListener('click', () => {
     if (outputContent.length > 0) {
         navigator.clipboard.writeText(outputContent);
     }
+    let popUpButton = document.getElementById('pop-up');
+    popUpButton.classList.remove('invisible')
+    setTimeout(function() { popUpButton.classList.add('invisible') }, 5000);
 })
 document.getElementById('import').addEventListener('click', () => {
     let quest = prompt('Veuillez entrer votre json', "")
     if (quest == null || quest == "") {
         text = "User cancelled the prompt.";
     } else {
+        document.getElementById('export').classList.remove('invisible')
         importGrid(quest)
     }
 })
@@ -26,6 +30,7 @@ document.getElementById('generate').addEventListener('click', () => {
         let result = parseInt(quest) || 0;
         if(result > minmaxSize[1] || result < minmaxSize[0]) return;
         else {
+            document.getElementById('export').classList.remove('invisible')
             clearGrid();
             generateGrid(result);
         }
@@ -36,6 +41,7 @@ document.getElementById('export').addEventListener('click', () => {
 })
 document.getElementById('clear').addEventListener('click', () => {
     clearGrid()
+    document.getElementById('export').classList.add('invisible')
     generateGrid(0);
 })
 function togglePixel(line, pixel, element, isImported) {
@@ -123,11 +129,18 @@ function importGrid(json) {
     wrapper.appendChild(box)
 }
 function exportGrid() {
+    document.getElementById('output').classList.remove('invisible')
     let formatedGrid = [].concat(...grid);
     output.textContent = JSON.stringify({size: gridSize,datas: formatedGrid})
 }
 function clearGrid() {
     let box = document.getElementById('box')
     if(box) box.parentNode.removeChild(box)
+    clearConsole()
+}
+function clearConsole() {
+    grid = []
+    output.textContent = ''
+    document.getElementById('output').classList.add('invisible')
 }
 generateGrid(gridSize)
